@@ -810,4 +810,4 @@ button {
   .calc_btns {
     grid-template-rows: repeat(4, 4rem);
   }
-} ;
+}
