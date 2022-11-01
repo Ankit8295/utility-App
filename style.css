@@ -1,0 +1,676 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600&display=swap");
+
+* {
+  font-family: "Inconsolata", monospace;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d5bdaf;
+}
+.allApps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main_btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.display_time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+.current_time {
+  font-size: 12.5rem;
+  font-weight: 300;
+}
+.main_date {
+  font-size: 2rem;
+}
+.app {
+  position: relative;
+  animation-name: movefrombotttom;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-ins;
+  background-color: #c7b0a3;
+}
+.close_app {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.7;
+  top: -2%;
+  right: -0.5%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 400;
+  transition: all 0.2s;
+}
+.close_app:active {
+  transform: translateY(0.2rem);
+}
+.utility_btns {
+  width: 10rem;
+  height: 3.2rem;
+  padding: 0.5rem;
+  background-color: #efd3d7;
+  margin: 1rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.utility_btns:hover {
+  background-color: #eacdc2;
+}
+.utility_btns:active {
+  transform: translateY(0.2rem);
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  filter: blur(2px);
+}
+
+/* weather app and styles */
+.weatherApp {
+  padding: 2rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 100;
+  width: 70rem;
+  height: 40rem;
+}
+.displayError {
+  background-color: none;
+  color: black;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  height: 2rem;
+  font-size: 1.5rem;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.current_location_btn-img {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  margin: 2rem;
+  top: 0;
+  right: 30%;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.current_location_btn-img:active {
+  transform: translateY(0.2rem);
+}
+
+.weather {
+  margin: 0 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.main_weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 18rem;
+  height: 18rem;
+  margin: 0 2rem;
+}
+
+.weather_temp {
+  font-size: 7rem;
+  font-weight: 300;
+  line-height: 3.3rem;
+}
+.weather_unit {
+  margin: 0 0.5rem;
+  font-size: 5rem;
+}
+.temp_C {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.city_name {
+  font-size: 2rem;
+  font-weight: 300;
+}
+.country {
+  font-size: 2.2rem;
+  font-weight: 200;
+}
+.weather_type {
+  line-height: 2rem;
+  font-size: 3rem;
+  font-weight: 200;
+}
+.search_city {
+  background-color: rgba(255, 255, 255, 0.282);
+  text-align: center;
+  font-size: 2rem;
+  width: 17rem;
+  height: 3rem;
+  border: none;
+  border-radius: 1.5rem;
+  font-weight: 400;
+}
+.search_city::placeholder {
+  font-size: 1.75rem;
+  font-weight: 100;
+  color: black;
+}
+img {
+  width: 18rem;
+  height: 18rem;
+  margin: 0;
+  padding: 0;
+}
+.weather_detail-values {
+  width: 40rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather_detail-values h3 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+hr {
+  opacity: 0.7;
+  color: white;
+}
+
+.detail {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.units {
+  margin: 0.25rem 0.5rem;
+  font-size: 1.75rem;
+}
+
+/* stopwatch app style */
+.StopwatchApp {
+  position: absolute;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 70rem;
+  height: 40rem;
+  z-index: 100;
+}
+.time {
+  margin-top: 2rem;
+}
+
+.time span {
+  font-weight: 300;
+  font-size: 8rem;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stopwatchscreenBtn {
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(239, 231, 231);
+  width: 9rem;
+  height: 3rem;
+  margin: 0 2.2rem;
+  border-radius: 15%;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.start {
+  background-color: #2c6e49;
+  color: white;
+}
+
+.stop {
+  color: white;
+  background-color: #a4161a;
+}
+
+.reset {
+  color: white;
+  background-color: #7f5539;
+}
+
+.stopwatchscreenBtn:active {
+  transform: translateY(0.25rem);
+}
+
+.reset:hover {
+  background-color: #b08968;
+}
+
+.stop:hover {
+  background-color: #e5383b;
+}
+
+.start:hover {
+  background-color: #4c956c;
+}
+
+/* notes app style */
+.notesApp {
+  position: absolute;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 68rem;
+  height: 40rem;
+  z-index: 100;
+}
+
+.notesInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.notesTitle {
+  background-color: #e1d2ca;
+  width: 30rem;
+  border: none;
+  height: 2.7rem;
+  font-size: 1.75rem;
+  padding: 0.5rem;
+}
+.notesDescriptionBox {
+  animation-name: moveFromTop;
+  animation-duration: 0.35s;
+  animation-timing-function: ease-out;
+  width: 30rem;
+  height: 8rem;
+}
+.notesSubmitbtn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 2.7rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: #988e87;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
+}
+.notesSubmitbtn:active {
+  transform: translateY(0.1rem);
+}
+#notesDescription {
+  padding: 0.5rem;
+  background-color: #e1d2ca;
+  border: none;
+  font-size: 1.75rem;
+  min-width: 30rem;
+  max-width: 30rem;
+  max-height: 8rem;
+  min-height: 8rem;
+}
+.notesContainer {
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  height: 23rem;
+}
+
+.note {
+  border: 2px solid rgb(70, 70, 70);
+  border-radius: 5%;
+  margin: 1.8rem;
+  padding: 1rem;
+  width: 16.8rem;
+  background-color: #e1d2cad4;
+  height: fit-content;
+  position: relative;
+}
+.note_title {
+  width: 100%;
+  font-size: 1.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.note_description {
+  word-wrap: break-word;
+  white-space: pre;
+  width: 100%;
+  line-height: 2rem;
+  font-size: 1.5rem;
+}
+.delete_note {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  opacity: 0.7;
+  line-height: 2rem;
+  margin: 0 0.4rem;
+}
+
+.delete_note:active {
+  transform: translateY(0.1rem);
+}
+/* calculator app style  */
+.calculatorApp {
+  position: absolute;
+  padding: 1.7rem 1.5rem;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 28rem;
+  height: 36rem;
+  z-index: 100;
+  border: 2px solid black;
+}
+
+.calc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  background-color: #c7b0a3;
+}
+.display_calc {
+  border: 2px solid black;
+  margin: 2rem 0 3rem 0;
+  background-color: #d5bdaf;
+  width: 100%;
+  height: 6rem;
+  padding-right: 1rem;
+  font-weight: 300;
+  font-size: 3rem;
+  text-align: end;
+}
+.calc_btns {
+  /* padding: 0.5rem; */
+  background-color: #c7b0a3;
+  width: 100%;
+  height: 27.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  column-gap: 0.3rem;
+  row-gap: 0.3rem;
+}
+.calc_btns-all {
+  font-size: 2.5rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: #d5bdaf;
+  transition: all 0.1s;
+}
+.calc_btns-all:hover {
+  background-color: #c7b0a3;
+}
+.calc_btns-all:active {
+  transform: translate(0, 0.15rem);
+}
+
+.equal_btn {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+.hidden {
+  display: none;
+}
+
+/* move apps from bottom animation */
+@keyframes movefrombotttom {
+  0% {
+    opacity: 0;
+    transform: translatey(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .app {
+    width: 47rem;
+    height: 40rem;
+  }
+  .calculatorApp {
+    width: 28rem;
+    height: 36rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .current_time {
+    font-size: 6.5rem;
+  }
+  .main_date {
+    margin-top: 1rem;
+    font-size: 2.2rem;
+  }
+  .display_time {
+    margin: 0;
+    margin-top: 2rem;
+  }
+  .utility_btns {
+    width: 60vw;
+  }
+  .main_btns {
+    height: 50vh;
+  }
+  .allApps {
+    height: 100vh;
+    width: 100vw;
+    justify-content: space-evenly;
+  }
+  .app {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .weather_temp {
+    font-size: 4rem;
+    line-height: 2.5rem;
+  }
+  .weather_unit {
+    font-size: 3rem;
+  }
+  .main_weather {
+    align-items: center;
+    height: 14rem;
+    margin: 0;
+  }
+  .weather {
+    justify-content: center;
+  }
+  .current_location_btn-img {
+    top: 4%;
+    right: 50%;
+    transform: translateX(50%);
+    margin: 0;
+  }
+  .weather_img {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .search_city {
+    margin: 2rem 0;
+  }
+  .city_name {
+    font-size: 1.5rem;
+  }
+  .country {
+    font-size: 1.5rem;
+    font-weight: 200;
+  }
+  .weather_type {
+    font-size: 1.9rem;
+  }
+  .weather_detail-values {
+    width: 90vw;
+    font-size: 1.5rem;
+    margin: 0.4rem 0;
+  }
+  .weather_detail-values h3 {
+    font-weight: 300;
+  }
+  .weather_detail-values span {
+    font-weight: 300;
+    margin: 0.2rem;
+  }
+  .StopwatchApp {
+    padding: 2rem;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+  }
+  .time {
+    margin-top: 4rem;
+  }
+
+  .time span {
+    font-weight: 300;
+    font-size: 3rem;
+  }
+  .btns {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .stopwatchscreenBtn {
+    width: 10rem;
+    height: 2.8rem;
+  }
+
+  .notesApp {
+    padding: 2rem;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+  }
+  .notesHeader {
+    margin-bottom: 5rem;
+  }
+
+  .notesInputs {
+    width: 80vw;
+  }
+  .notesTitle {
+    width: 80vw;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  .notesDescriptionBox {
+    height: 8rem;
+    width: 80vw;
+  }
+  #notesDescription {
+    font-size: 1.5rem;
+    min-width: 80vw;
+    max-width: 80vw;
+    max-height: 8rem;
+    min-height: 8rem;
+  }
+
+  .calculatorApp {
+    padding: 1.3rem 1.1rem;
+    justify-content: space-evenly;
+    width: 90vw;
+    height: 70vh;
+  }
+  .calc {
+    justify-content: space-evenly;
+  }
+
+  .calc_btns {
+    width: 100%;
+    height: 70%;
+  }
+  .calc_btns-all {
+    height: 5rem;
+    font-size: 2rem;
+  }
+  .calc_btns-all:active {
+    transform: translate(0, 0.075rem);
+  }
+}

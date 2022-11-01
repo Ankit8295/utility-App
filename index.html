@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utility App</title>
+    <link rel="icon" type="image/x-icon" href="img/Utilities-icon.png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="allApps">
+      <div class="display_time">
+        <div><span class="current_time"></span></div>
+        <div class="main_date"></div>
+      </div>
+      <div class="main_btns">
+        <button class="utility_btns calculatorbtn">Calculator</button>
+        <button class="utility_btns weatherbtn">Weather</button>
+        <button class="utility_btns stopwatchbtn">Stopwatch</button>
+        <button class="utility_btns notesbtn">Notes</button>
+      </div>
+    </div>
+    <!-- weatheraApp -->
+    <div class="app weatherApp hidden">
+      <button class="close_app">x</button>
+      <img class="current_location_btn-img" src="img/nav_icn.png" alt="" />
+      <input class="search_city" type="text" placeholder="enter city name" />
+      <div class="displayError"></div>
+      <div class="weather">
+        <div class="main_weather">
+          <div class="temp_C">
+            <h1 class="weather_temp"></h1>
+            <span class="weather_unit">°C</span>
+          </div>
+          <h3 class="city_name"></h3>
+          <h3 class="weather_type"></h3>
+        </div>
+        <img class="weather_img hidden" src="#" alt="" />
+      </div>
+      <div class="weather_detail">
+        <div class="weather_detail-values">
+          <h3 class="feel_like">Feels Like</h3>
+          <div class="detail">
+            <h3 class="feels_like-type"></h3>
+            <span class="units">°C</span>
+          </div>
+        </div>
+        <hr />
+        <div class="weather_detail-values">
+          <h3 class="humidity">Humidity</h3>
+          <div class="detail">
+            <h3 class="humidity_value"></h3>
+            <span class="units">%</span>
+          </div>
+        </div>
+        <hr />
+        <div class="weather_detail-values">
+          <h3 class="max_temp">Wind Speed</h3>
+          <div class="detail">
+            <h3 class="wind_speed-value"></h3>
+            <span class="units">kph</span>
+          </div>
+        </div>
+        <hr />
+        <div class="weather_detail-values">
+          <h3 class="min_temp">Visibility</h3>
+          <div class="detail">
+            <h3 class="visibility-value"></h3>
+            <span class="units">km</span>
+          </div>
+        </div>
+        <hr />
+        <div class="weather_detail-values">
+          <h3 class="pressure">Pressure</h3>
+          <div class="detail">
+            <h3 class="pressure_value"></h3>
+            <span class="units">hPa</span>
+          </div>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <!-- stopwatch App -->
+    <div class="app StopwatchApp hidden">
+      <button class="close_app">x</button>
+      <div class="time">
+        <span class="hour">00</span><span>:</span> <span class="minute">00</span
+        ><span>:</span> <span class="second">00</span><span>:</span>
+        <span class="milisec">00</span>
+      </div>
+      <div class="btns">
+        <div><button class="stopwatchscreenBtn start">Start</button></div>
+        <div><button class="stopwatchscreenBtn stop">Stop</button></div>
+        <div><button class="stopwatchscreenBtn reset">Reset</button></div>
+      </div>
+    </div>
+
+    <!-- Notes App -->
+    <div class="app notesApp hidden">
+      <button class="close_app">x</button>
+      <div class="notesHeader">
+        <form class="notesInputs" action="">
+          <input type="text" class="notesTitle" placeholder="title" />
+          <hr />
+          <div class="notesDescriptionBox hidden">
+            <textarea
+              name="foo"
+              id="notesDescription"
+              cols="40"
+              rows="10"
+              placeholder="description"
+            ></textarea>
+            <button class="notesSubmitbtn">&plus;</button>
+          </div>
+        </form>
+      </div>
+      <div class="notesContainer"></div>
+    </div>
+
+    <!-- Calculator App -->
+    <div class="app calculatorApp hidden">
+      <!-- <button class="close_app">x</button> -->
+      <div class="calc">
+        <button class="display_calc"></button>
+        <div class="calc_btns">
+          <button class="calc_btns-all clearCalcBtn">AC</button>
+          <button
+            class="calc_btns-all delete_last_value"
+            data-function="leftarrow"
+          >
+            &leftarrow;
+          </button>
+          <button class="calc_btns-all calc_btns-operator">%</button>
+          <button class="calc_btns-all calc_btns-operator">/</button>
+          <button class="calc_btns-all calc_btns-operator">*</button>
+          <button class="calc_btns-all calc_btns-num">9</button>
+          <button class="calc_btns-all calc_btns-num">8</button>
+          <button class="calc_btns-all calc_btns-num">7</button>
+          <button class="calc_btns-all calc_btns-num">6</button>
+          <button class="calc_btns-all calc_btns-operator">-</button>
+          <button class="calc_btns-all calc_btns-num">5</button>
+          <button class="calc_btns-all calc_btns-num">4</button>
+          <button class="calc_btns-all calc_btns-num">3</button>
+          <button class="calc_btns-all calc_btns-num">2</button>
+          <button class="calc_btns-all calc_btns-operator">+</button>
+          <button class="calc_btns-all calc_btns-num">1</button>
+          <button class="calc_btns-all calc_btns-num">0</button>
+          <button class="calc_btns-all add_dot">.</button>
+          <button class="calc_btns-all equal_btn">=</button>
+        </div>
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
+  </body>
+</html>
