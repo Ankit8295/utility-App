@@ -77,6 +77,8 @@ body {
   font-weight: 400;
   cursor: pointer;
   transition: all 0.2s;
+  color: black;
+  text-decoration: none;
 }
 .utility_btns:hover {
   background-color: #eacdc2;
@@ -480,6 +482,10 @@ hr {
 
 .hidden {
   display: none;
+}
+button {
+  color: black;
+  text-decoration: none;
 }
 
 /* move apps from bottom animation */
