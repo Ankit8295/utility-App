@@ -268,7 +268,6 @@ operator.forEach((operator) => {
     e.preventDefault();
     if (saveNum) {
       operation(operatorPressed);
-      saveNum = 0;
       saveNum = result;
       calcDisplay.textContent = saveNum;
     }
@@ -282,10 +281,10 @@ operator.forEach((operator) => {
 document.querySelector(".equal_btn").addEventListener("click", function (e) {
   e.preventDefault();
   operation(operatorPressed);
-  saveNum = 0;
   saveNum = result;
-  numPressed = "";
-  calcDisplay.textContent = saveNum;
+  operatorPressed = "";
+  numPressed = result;
+  calcDisplay.textContent = numPressed;
 });
 
 //delete last digit from the number
@@ -313,8 +312,8 @@ clearAllinput.addEventListener("click", function (e) {
   calcDisplay.textContent = "";
   operatorPressed = "";
   numPressed = "";
-  saveNum = null;
-  result = null;
+  saveNum = "";
+  result = "";
 });
 
 //////////////////////////////////////////////////////
